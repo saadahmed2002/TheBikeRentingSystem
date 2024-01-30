@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Dropdown, Button, Space, Row, Col } from "antd";
+import { Menu, Dropdown, Button, Row, Col } from "antd";
 import { Link } from "react-router-dom";
 import "../index.css";
 import Footer from "./footer/Footer";
@@ -12,7 +12,7 @@ function DefaultLayout(props) {
       <Menu.Item key={1}>
         <a href="/">Home</a>
       </Menu.Item>
-      {user && (
+      { (
         <Menu.Item key={2}>
           <a href="/userbookings">Bookings</a>
         </Menu.Item>
@@ -35,6 +35,7 @@ function DefaultLayout(props) {
           <li style={{ color: "tomato" }}>Logout</li>
         </Menu.Item>
       )}
+
       {admin && (
         <Menu.Item
           key={5}
@@ -57,8 +58,8 @@ function DefaultLayout(props) {
             <div className="d-flex justify-content-between">
               <h1>
                 <b>
-                  <Link to="/" style={{ color: "#f1c40f" }}>
-                    Z<i className="fa-solid fa-person-biking"></i>pRides
+                  <Link to="/" className={'text-red-200'}>
+                    Bike Renting System
                   </Link>
                 </b>
               </h1>
@@ -80,7 +81,7 @@ function DefaultLayout(props) {
           <i class="fa-solid fa-user-astronaut" style={{ color: "tomato" }}></i>
         </p>
         <p></p> */}
-        <Footer></Footer>
+        <Footer/>
       </div>
     </div>
   );

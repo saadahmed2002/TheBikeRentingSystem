@@ -31,8 +31,8 @@ function Login() {
           />
 
           <h1 className="login-logo">
-            Z<i className="fa-solid fa-person-biking" />
-            pRides
+            <i className="fa-solid fa-person-biking" />
+            BRS
           </h1>
         </Col>
         <Col lg={8} className="text-left p-5">
@@ -60,9 +60,9 @@ function Login() {
 
             <button className="btn1 mt-2">Login</button>
             <br />
-            <Link to={"/adminregister"}>
+            {/* <Link to={"/adminregister"}>
               <p className="mt-2">Click here to Register as Admin</p>
-            </Link>
+            </Link> */}
             <Link to={"/login"}>
               <p className="mt-2">Want to book bike</p>
             </Link>

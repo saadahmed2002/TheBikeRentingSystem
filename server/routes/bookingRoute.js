@@ -15,7 +15,7 @@ router.post("/bookbike", async (req, res) => {
     const car = await Car.findOne({ _id: req.body.car });
     car.bookedTimeSlots.push(req.body.bookedTimeSlots);
     await car.save();
-    res.send("Your booking is successful");
+    res.send("/api/Your booking is successful");
   } catch (err) {
     console.log(err);
     return res.status(400).json(err);
@@ -24,6 +24,7 @@ router.post("/bookbike", async (req, res) => {
 
 router.get("/getallbookings", async (req, res) => {
   try {
+  
     const bookings = await Booking.find().populate("car");
     res.send(bookings);
   } catch (err) {

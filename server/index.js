@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const dbConnection = require("./db");
-const port = process.env.PORT || 5000;
+const port =  5000;
 app.use(express.json());
 var cors = require("cors");
 
@@ -17,6 +17,6 @@ app.use("/api/users/", UserRoute);
 app.use("/api/bookings/", BookingRoute);
 app.use("/api/admin/", AdminLoginRoute);
 
-app.get("/", (req, res) => res.send("Hello Pumpkin"));
+app.get("/", (req, res) => res.send("Hello Shady"));
 
 app.listen(port, () => console.log(`server running on port ${port}`));

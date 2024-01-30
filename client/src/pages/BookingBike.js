@@ -31,14 +31,14 @@ function BookingBike({ match }) {
     } else {
       setCar(cars.find((o) => o._id === path));
     }
-  }, [cars, path]);
+  }, [cars, path,dispatch]);
 
   useEffect(() => {
     setTotalAmount(totalHours * car.rentPerHour);
     if (ridingGears) {
       setTotalAmount(totalAmount + 20 * totalHours);
     }
-  }, [ridingGears, totalHours]);
+  }, [ridingGears, totalHours,car.rentPerHour,totalAmount]);
 
   function selectTimeSlot(values) {
     setFrom(moment(values[0]).format("MMM DD yyyy HH:mm"));
@@ -68,10 +68,10 @@ function BookingBike({ match }) {
       {loading && <Spinner />}
       <Row
         justify="center"
-        className="d-flex align-items-center"
+        className="d-flex align-items-center bg-gray"
         style={{ minHeight: "90vh" }}
       >
-        <Col lg={10} sm={24} xs={24}>
+        <Col lg={10} sm={24} xs={24} className="">
           <img
             src={car.image}
             alt=""
@@ -80,7 +80,7 @@ function BookingBike({ match }) {
             data-aos-duration="1500"
           />
         </Col>
-        <Col lg={10} sm={24} xs={24} className="p-3 text-right">
+        <Col lg={10} sm={24} xs={24} className="p-3 text-right bg-white rounded" >
           <Divider
             type="horizontal"
             dashed

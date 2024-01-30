@@ -31,8 +31,8 @@ function Register() {
           />
 
           <h1 className="login-logo">
-            Z<i className="fa-solid fa-person-biking" />
-            pRides
+            <i className="fa-solid fa-person-biking" />
+            BRS
           </h1>
         </Col>
         <Col lg={8} className="text-left p-5">

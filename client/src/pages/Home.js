@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
 import { getAllCars } from "../redux/actions/carsActions";
-import { Col, Row, Divider, DatePicker, Checkbox } from "antd";
+import { Col, Row, DatePicker } from "antd";
 import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import moment from "moment";
@@ -15,7 +15,7 @@ function Home() {
 
   useEffect(() => {
     dispatch(getAllCars());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setTotalcars(cars);
@@ -54,12 +54,12 @@ function Home() {
 
   return (
     <DefaultLayout>
-      <Row className="mt-3" justify="center">
-        <Col lg={20} sm={24} className="d-flex justify-content-left">
-          <p>
-            <b>Check Availability </b> :{" "}
+      <Row className="p-3" justify="center">
+        <Col lg={20} sm={24} className="d-flex justify-content-left mt-3">
+          <p className="text-3xl text-gray-100">
+            <b>Check Availability :</b>  {" "}
           </p>
-          <br />
+       
           <RangePicker
             showTime={{ format: "HH:mm" }}
             format="MMM DD yyyy HH:mm"
@@ -78,6 +78,7 @@ function Home() {
               lg={5}
               sm={24}
               xs={24}
+              key={car.name}
               data-aos="flip-left"
               data-aos-duration="1500"
             >
@@ -97,9 +98,12 @@ function Home() {
                   </div>
 
                   <div>
-                    <Link to={`/booking/${car._id}`}>
+                    { localStorage.getItem('admin') ? null:
+
+                      <Link to={`/booking/${car._id}`}>
                       <button className="btn1 mr-2">Book Now</button>
                     </Link>
+                    }
                   </div>
                 </div>
               </div>

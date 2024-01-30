@@ -1,7 +1,7 @@
 import axios from "axios";
 import { message } from "antd";
 const API = axios.create({
-  baseURL: "https://zooprides-api.herokuapp.com/api/",
+  baseURL: "http://localhost:5000/api/",
 });
 
 export const BookCar = (reqObj) => async (dispatch) => {
@@ -24,7 +24,7 @@ export const getAllBookings = () => async (dispatch) => {
 
   try {
     const response = await API.get("bookings/getallbookings");
-    console.log(response);
+    // console.log(response);
     dispatch({ type: "GET_ALL_BOOKINGS", payload: response.data });
     dispatch({ type: "LOADING", payload: false });
   } catch (err) {

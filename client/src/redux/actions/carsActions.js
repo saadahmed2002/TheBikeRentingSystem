@@ -1,14 +1,14 @@
 import axios from "axios";
 import { message } from "antd";
 const API = axios.create({
-  baseURL: "https://zooprides-api.herokuapp.com/api/",
+  baseURL: "http://localhost:5000/api",
 });
 
 export const getAllCars = () => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-    const response = await API.get("bikes/getallbikes");
+    const response = await API.get("/bikes/getallbikes");
 
     dispatch({ type: "GET_ALL_CARS", payload: response.data });
     dispatch({ type: "LOADING", payload: false });
@@ -25,7 +25,7 @@ export const addBike = (reqObj) => async (dispatch) => {
     await API.post("/bikes/addbike", reqObj);
 
     dispatch({ type: "LOADING", payload: false });
-    message.success("New car added successfully");
+    message.success("New bike added successfully");
     setTimeout(() => {
       window.location.href = "/admin";
     }, 500);
@@ -42,7 +42,7 @@ export const editBike = (reqObj) => async (dispatch) => {
     await API.post("/bikes/editbike", reqObj);
 
     dispatch({ type: "LOADING", payload: false });
-    message.success("Car details updated successfully");
+    message.success("Bike details updated successfully");
     setTimeout(() => {
       window.location.href = "/admin";
     }, 500);

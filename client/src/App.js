@@ -1,19 +1,19 @@
-import { Routes, Route, BrowserRouter, Redirect } from "react-router-dom";
+import 'antd/dist/antd.min.css'    
+import {  Route, BrowserRouter, Redirect } from "react-router-dom";
 import BookingBike from "./pages/BookingBike";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import "antd/dist/antd.css";
 import UserBookings from "./pages/UserBookings";
 import AdminHome from "./pages/AdminHome";
 import AdminLogin from "./pages/AdminLogin";
-import AdminRegister from "./pages/AdminRegister";
 import AddBike from "./pages/AddBike";
 import EditBike from "./pages/EditBike";
 
 function App() {
   const user = localStorage.getItem("user");
   const admin = localStorage.getItem("admin");
+  if(user || admin) console.log('.')
   return (
     <div className="App">
       <BrowserRouter>
@@ -23,16 +23,15 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/adminlogin" exact component={AdminLogin} />
         <Route path="/register" exact component={Register} />
-        <Route path="/adminregister" exact component={AdminRegister} />
+        {/* <Route path="/adminregister" exact component={AdminRegister} /> */}
         <ProtectedRouteUser
           path="/booking/:carid"
           exact
           component={BookingBike}
         />
-        <ProtectedRouteUser
+        <Route
           path="/userbookings"
-          exact
-          component={UserBookings}
+          exact component={UserBookings}
         />
         <ProtectedRouteAdmin path="/addbike" exact component={AddBike} />
         <ProtectedRouteAdmin

@@ -13,6 +13,7 @@ router.get("/getallbikes", async (req, res) => {
 
 router.post("/addbike", async (req, res) => {
   try {
+    
     const newbike = new Bike(req.body);
     await newbike.save();
     res.send("Bike added successfully");

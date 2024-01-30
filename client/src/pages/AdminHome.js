@@ -2,22 +2,23 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
 import { deleteBike, getAllCars } from "../redux/actions/carsActions";
-import { Col, Row, Divider, DatePicker, Checkbox, Edit } from "antd";
+import { Col, Row } from "antd";
 import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
-import moment from "moment";
+
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { Popconfirm, message } from "antd";
-const { RangePicker } = DatePicker;
+import { Popconfirm } from "antd";
+
 function AdminHome() {
   const { cars } = useSelector((state) => state.carsReducer);
   const { loading } = useSelector((state) => state.alertsReducer);
   const [totalCars, setTotalcars] = useState([]);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAllCars());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setTotalcars(cars);
@@ -25,10 +26,10 @@ function AdminHome() {
 
   return (
     <DefaultLayout>
-      <Row justify="center" gutter={16} className="mt-2">
+      <Row justify="center" gutter={16} className="">
         <Col lg={20} sm={24}>
           <div className="d-flex justify-content-between align-items-center">
-            <h3 className="mt-1 mr-2">Admin Panel</h3>
+            <h3 className="mt-1 mr-2 text-4xl bg-blue-100 rounded-lg p-1 m-3">Admin Panel</h3>
             <button className="btn1">
               <a href="/addbike">ADD BIKE</a>
             </button>

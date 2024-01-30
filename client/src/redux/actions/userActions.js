@@ -1,14 +1,14 @@
 import axios from "axios";
 import { message } from "antd";
 const API = axios.create({
-  baseURL: "https://zooprides-api.herokuapp.com/api/",
+  baseURL: "http://localhost:5000/api/",
 });
 
 export const userLogin = (reqObj) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-    const response = await API.post("/users/login", reqObj);
+    const response = await API.post("users/login", reqObj);
     localStorage.setItem("user", JSON.stringify(response.data));
     message.success("Login Success");
     dispatch({ type: "LOADING", payload: false });
@@ -26,7 +26,7 @@ export const userRegister = (reqObj) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-    const response = await API.post("/users/register", reqObj);
+    const response = await API.post("users/register", reqObj);
     message.success("Registered sucessfully");
     setTimeout(() => {
       window.location.href = "/login";
