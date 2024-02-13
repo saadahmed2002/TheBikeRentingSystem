@@ -5,6 +5,7 @@ const bcrpyt = require("bcrypt");
 
 //REGISTER
 router.post("/register", async (req, res) => {
+  console.log(req.body)
   try {
     const salt = await bcrpyt.genSalt(10);
     const hashedPass = await bcrpyt.hash(req.body.password, salt);

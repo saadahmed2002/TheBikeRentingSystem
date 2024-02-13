@@ -23,7 +23,7 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/adminlogin" exact component={AdminLogin} />
         <Route path="/register" exact component={Register} />
-        {/* <Route path="/adminregister" exact component={AdminRegister} /> */}
+        
         <ProtectedRouteUser
           path="/booking/:carid"
           exact

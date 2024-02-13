@@ -20,7 +20,7 @@ function Login() {
   return (
     <div className="login">
       {loading && <Spinner />}
-      <Row gutter={16} className="d-flex align-items-center">
+      <Row gutter={16} className="d-flex align-items-center bg-black">
         <Col lg={16} style={{ position: "relative" }}>
           <img
             src={require("../images/bike.png")}

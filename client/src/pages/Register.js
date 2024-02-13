@@ -71,7 +71,7 @@ function Register() {
               <p className="mt-2">Click here to Login</p>
             </Link>
             <Link to={"/login"}>
-              <p className="mt-2">Click here to Register as Admin</p>
+              <p className="mt-2">Click here to Login as Admin</p>
             </Link>
           </Form>
         </Col>
